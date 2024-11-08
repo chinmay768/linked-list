@@ -24,27 +24,34 @@ public class DeletionInLinkedList {
         if (head == null) return null;
         if(k == 1){
             head = head.next;
-            
+            return head;
         }
         Node temp = head;
         Node prev = null;
 
 
         int pos = 1;
-
         while (temp != null){
             if(pos == k){
                 prev.next = temp.next;
+                break;
+            }else {
+                pos++;
+                prev = temp;
+                temp = temp.next;
             }
         }
+
+        return head;
     }
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         Node head = LinkedList.convertArrayToLL(arr);
-        head = deleteHead(head);
-
+//        head = deleteHead(head);
+//        head = deleteTail(head);
+        head = deleteKthNode(head, 4);
         LinkedList.printLL(head);
     }
 }
