@@ -4,7 +4,7 @@ public class LinkedList {
 
     public static void printLL(Node head){
         while (head != null){
-            System.out.println(head.data);
+            System.out.print(head.data + " ");
             head = head.next;
         }
     }
