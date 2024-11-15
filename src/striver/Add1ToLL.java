@@ -2,7 +2,7 @@ package striver;
 
 public class Add1ToLL {
 
-    public static Node add1ToLL(Node head, int carry) {
+    public static Node add1ToLLNaive(Node head, int carry) {
         if(head == null) return null;
 
         head = ReverseLL.reverseLLNaive(head);
@@ -29,11 +29,33 @@ public class Add1ToLL {
         return head;
     }
 
+    public static int add1ToLLRec(Node head){
+        if(head == null) return 1;
+
+        int carry = add1ToLLRec(head.next);
+        head.data = head.data + carry;
+
+        if(head.data < 10){
+            return 0;
+        }else{
+            head.data = 0;
+            return 1;
+        }
+    }
+
+    public static Node add1ToLL(Node head){
+        int carry = add1ToLLRec(head);
+        if(carry == 1){
+            return new Node(1, head);
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {9, 9, 9};
+        int[] arr = {9, 1, 9};
 
         Node head = LinkedList.convertArrayToLL(arr);
-        head = add1ToLL(head, 1);
+        head = add1ToLL(head);
 
         LinkedList.printLL(head);
     }
