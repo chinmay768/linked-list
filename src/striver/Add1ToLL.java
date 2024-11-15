@@ -8,7 +8,7 @@ public class Add1ToLL {
         head = ReverseLL.reverseLLNaive(head);
 
         Node temp = head;
-        while (carry != 0){
+        while (temp != null){
             temp.data = temp.data + carry;
 
             if(temp.data < 10){
@@ -21,8 +21,8 @@ public class Add1ToLL {
         }
 
         if(carry == 1){
+            ReverseLL.reverseLLNaive(head);
             Node newNode = new Node(carry, head);
-            ReverseLL.reverseLLNaive(newNode);
             return newNode;
         }
         ReverseLL.reverseLLNaive(head);
@@ -30,7 +30,7 @@ public class Add1ToLL {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 1, 3};
+        int[] arr = {9, 9, 9};
 
         Node head = LinkedList.convertArrayToLL(arr);
         head = add1ToLL(head, 1);
