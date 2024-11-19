@@ -46,7 +46,7 @@ public class DetectCycleInLL {
         head.next.next.next.next.next = new Node(6);
         head.next.next.next.next.next.next = new Node(7);
         head.next.next.next.next.next.next.next = new Node(8);
-        head.next.next.next.next.next.next.next.next = new Node(18);
+        head.next.next.next.next.next.next.next.next = head.next.next.next;
 
 
         Boolean isCyclePresent = checkCycle(head);
