@@ -61,7 +61,8 @@ public class MergeKSortedList {
     }
 
     public static Node mergeUsingMinHeap(List<Node> lists){
-        Queue<Node> pq = new PriorityQueue<>(new NodeComparator());
+//        Queue<Node> pq = new PriorityQueue<>(new NodeComparator());
+        Queue<Node> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
         for (int i = 0; i < lists.size(); i++){
             pq.add(lists.get(i));
         }
