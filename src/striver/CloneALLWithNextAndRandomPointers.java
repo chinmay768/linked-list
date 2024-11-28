@@ -25,38 +25,38 @@ public class CloneALLWithNextAndRandomPointers {
         return map.get(head);
     }
 
-//    public static RNode cloneLL(RNode head){
-//        RNode temp = head;
-//
-//        while (temp != null){
-//            RNode copyNode = new RNode(temp.data);
-//            copyNode.next = temp.next;
-//            temp.next = copyNode;
-//            temp = temp.next.next;
-//        }
-//
-//        temp = head;
-//        while (temp != null){
-//            // We cannot do next processing here because random is dependent on temp.random.next
-//            RNode copyNode = temp.next;
-//            if(temp.random != null)
-//                copyNode.random = temp.random.next;
-//            temp = temp.next.next;
-//        }
-//
-//        RNode dummyNode = new RNode(-1);
-//        RNode curr = dummyNode;
-//        temp = head;
-//        while (temp != null){
-//            curr.next = temp.next;
-//            temp.next = temp.next.next;
-//
-//            curr = curr.next;
-//            temp = temp.next;
-//        }
-//
-//        return dummyNode.next;
-//    }
+    public static RNode cloneLL(RNode head){
+        RNode temp = head;
+
+        while (temp != null){
+            RNode copyNode = new RNode(temp.data);
+            copyNode.next = temp.next;
+            temp.next = copyNode;
+            temp = temp.next.next;
+        }
+
+        temp = head;
+        while (temp != null){
+            // We cannot do next processing here because random is dependent on temp.random.next
+            RNode copyNode = temp.next;
+            if(temp.random != null)
+                copyNode.random = temp.random.next;
+            temp = temp.next.next;
+        }
+
+        RNode dummyNode = new RNode(-1);
+        RNode curr = dummyNode;
+        temp = head;
+        while (temp != null){
+            curr.next = temp.next;
+            temp.next = temp.next.next;
+
+            curr = curr.next;
+            temp = temp.next;
+        }
+
+        return dummyNode.next;
+    }
 
     public static void main(String[] args) {
         RNode node1 = new RNode(7);
@@ -81,11 +81,11 @@ public class CloneALLWithNextAndRandomPointers {
         node5.random = node1;
 
         RNode cloneLL = cloneLLNaive(node1);
-//        RNode cloneLL2 = cloneLL(node1);
+        RNode cloneLL2 = cloneLL(node1);
         RNode.printLL(cloneLL);
 
-//        System.out.println("/n/n");
-//        RNode.printLL(cloneLL2);
+        System.out.println("/n/n");
+        RNode.printLL(cloneLL2);
 
     }
 }
